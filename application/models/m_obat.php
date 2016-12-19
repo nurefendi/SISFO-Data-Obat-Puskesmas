@@ -57,7 +57,21 @@ class m_obat extends CI_Model
 			return $t;
 		}
 		
-		
+		//cek ketersediaan obat kritis
+		function Tampil_Stok($limit,$offset)
+		{
+			$stok=0;  
+			$stok15=15;
+			$t=$this->db->query("select * from tbl_obat left join(tbl_kategori)on tbl_obat.id_kategori=tbl_kategori.id_kategori 
+			where tbl_obat.stok between '$stok' and '$stok15' order by id_obat DESC LIMIT $offset,$limit");
+			return $t;
+		}
+				
+		function Total_Stok()
+		{
+			$ta=$this->db->query("select * from tbl_obat");
+			return $ta;
+		}
 			
 }
 ?>
