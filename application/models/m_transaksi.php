@@ -3,15 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class m_transaksi extends CI_Model
 	{
-		function m_transaksi()
+				//Tampil Daftar Obat yang tersedia
+        function Add_Transaksi()
 		{
-			parent::Model();
-		}
-
-		//Tampil Daftar Obat yang tersedia
-        function Add_Transaksi($id_obat)
-		{
-			$t=$this->db->query("select * from tbl_obat  where id_obat='$id_obat'");
+			$t=$this->db->query("select * from tbl_obat  where id_obat");
 			return $t;
 		}
 		
@@ -24,7 +19,7 @@ class m_transaksi extends CI_Model
 		}
 		
 		//Simpan Tambah Data Transaksi
-		function Simpan_Artikel($tabel,$data)
+		function Simpan_TransaksiObat($tabel,$data)
 		{
 			$s=$this->db->insert($tabel,$data);
 			return $s;
@@ -36,30 +31,20 @@ class m_transaksi extends CI_Model
 			$query_update=$this->db->query("update tbl_obat set stok=stok-'$stok' where id_obat=".$in['id_obat']."");
 			return $query_update;
 		}
-        
-		//Simpan Data Transaksi
-		function Simpan_Aksi($in)
-		{
-			$kat=$this->db->insert('tbl_transaksi',$in);
-			return $kat;
-		}
-		
-		function Simpan_Data($query)
-		{
-			$this->db->query($query);
-		}
-        
+      
 		//Tampil Detail Transaksi
 		function Detail_Transaksi($id_obat)
 		{
-			$query_detail_obat=$this->db->query("SELECT * from tbl_obat left join (tbl_kategori)on tbl_obat.id_kategori=tbl_kategori.id_kategori where id_obat='$id_obat'");
+			$query_detail_obat=$this->db->query("SELECT * from tbl_obat right join (tbl_kategori)on tbl_obat.id_kategori=tbl_kategori.id_kategori 
+			where id_obat='$id_obat'");
 			return $query_detail_obat;
 		}
-		
+	
 		//Lihat Menu Data Transaksi Obat
         function Tampil($limit,$offset)
 		{
-		$t=$this->db->query("select * from tbl_transaksi left join (tbl_kategori,tbl_obat) on tbl_transaksi.id_obat=tbl_obat.id_obat and tbl_transaksi.id_kategori=tbl_kategori.id_kategori order by id_transaksi DESC LIMIT $offset,$limit");
+		$t=$this->db->query("select * from tbl_transaksi left join (tbl_kategori,tbl_obat) on tbl_transaksi.id_obat=tbl_obat.id_obat 
+		and tbl_transaksi.id_kategori=tbl_kategori.id_kategori order by id_transaksi DESC LIMIT $offset,$limit");
 		return $t;
 		}
 		

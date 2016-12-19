@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class m_kategori extends CI_Model
 	{
-		
 		function Tampil_Katobat($limit,$ofset)
 		{
 			$t=$this->db->query("select * from tbl_kategori order by id_kategori DESC LIMIT $ofset,$limit");
@@ -21,12 +20,6 @@ class m_kategori extends CI_Model
 			$t=$this->db->query("select * from tbl_kategori where id_kategori='$id'");
 			return $t;
 		}
-		
-			function Edit_Sub($id)
-			{
-			$t=$this->db->query("select * from tbl_sub where id_sub='$id'");
-			return $t;
-			}
 		
 		function Kat_Obat()
 		{
@@ -52,23 +45,11 @@ class m_kategori extends CI_Model
 			$this->db->update('tbl_kategori',$in);
 		}
 		
-			function Update_Sub($in)
-			{
-			$this->db->where('id_sub',$in['id_sub']);
-			$this->db->update('tbl_sub',$in);
-			}
-		
 		function Simpan_Kat_obat($in)
 		{
 			$kat=$this->db->insert('tbl_kategori',$in);
 			return $kat;
 		}
-		
-			function Simpan_Sub($in)
-			{
-			$kat=$this->db->insert('tbl_sub',$in);
-			return $kat;
-			}
 		
 		function Hapus_Kat_obat($id)
 		{
@@ -76,20 +57,18 @@ class m_kategori extends CI_Model
 			$this->db->delete('tbl_kategori');
 		}
 		
-			function Total_Sub()
+		//Pilih kategori di ADD transaksi
+			function Get_idKategori()	
 			{
-				$ta=$this->db->query("select * from tbl_obat");
-				return $ta;
+				$query = $this->db->get('tbl_kategori');
+				return $query->result();
 			}
-			
-			 function Tampil_Sub($limit,$offset)
-			{
-				$t=$this->db->query("select * from tbl_sub left join tbl_kategori
-				on tbl_sub.id_kategori=tbl_kategori.id_kategori order by id_sub DESC LIMIT $offset,$limit");
-				return $t;
-			}
-			
 		
+				function Get_IdSub()	
+				{
+					$sql = $this->db->get('tbl_sub');
+					return $sql;
+				}
      
 }
 ?>
