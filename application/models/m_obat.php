@@ -51,10 +51,24 @@ class m_obat extends CI_Model
 			return $t;
 		}
 		
+		//lihat data dari hasil update data obat
 		function Tampil_Ska($id_kategori)
 		{
 			$t=$this->db->query("select * from tbl_obat  where id_kategori='$id_kategori'");
 			return $t;
+		}
+		
+	//lihat data yang di pilih berdasarkan kategori di menu stok obat
+        function Tampil_Detail($id_kategori,$limit,$offset)
+		{
+			$t=$this->db->query("select * from tbl_obat where id_kategori='$id_kategori' order by id_obat DESC LIMIT $offset,$limit");
+			return $t;
+		}
+			
+		function Total_Detail($id_kategori)
+		{
+			$ta=$this->db->query("select * from tbl_obat  where id_kategori='$id_kategori'");
+			return $ta;
 		}
 		
 		//cek ketersediaan obat kritis
