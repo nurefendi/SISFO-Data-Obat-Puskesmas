@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class m_kategori extends CI_Model
 	{
-		function Tampil_Katobat($limit,$ofset)
+function Tampil_Katobat($limit,$ofset)
 		{
 			$t=$this->db->query("select * from tbl_kategori order by id_kategori DESC LIMIT $ofset,$limit");
 			return $t;
@@ -44,7 +44,7 @@ class m_kategori extends CI_Model
 			$this->db->where('id_kategori',$in['id_kategori']);
 			$this->db->update('tbl_kategori',$in);
 		}
-		
+
 		function Simpan_Kat_obat($in)
 		{
 			$kat=$this->db->insert('tbl_kategori',$in);
@@ -57,18 +57,5 @@ class m_kategori extends CI_Model
 			$this->db->delete('tbl_kategori');
 		}
 		
-		//Pilih kategori di ADD transaksi
-			function Get_idKategori()	
-			{
-				$query = $this->db->get('tbl_kategori');
-				return $query->result();
-			}
-		
-				function Get_IdSub()	
-				{
-					$sql = $this->db->get('tbl_sub');
-					return $sql;
-				}
-     
 }
 ?>
