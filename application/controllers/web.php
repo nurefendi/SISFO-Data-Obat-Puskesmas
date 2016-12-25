@@ -1,7 +1,6 @@
 <?php
 
 class Web extends Controller {
-
 	function Web()
 	{
 		parent::Controller();
@@ -47,8 +46,7 @@ class Web extends Controller {
 			echo "<meta http-equiv='refresh' content='0; url=".base_url()."'>";
 		}
 	}
-	function logout()
-	{
+	function logout() {
 	session_destroy();
 	echo "<meta http-equiv='refresh' content='0; url=".base_url()."'>";
 	}
