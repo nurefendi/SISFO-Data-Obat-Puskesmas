@@ -6,6 +6,7 @@
 			</noscript>
 
 			<!-- start: Content -->
+			
 			<div id="content" class="span10">
 
 
@@ -31,21 +32,26 @@
 						<ul class="dashboard-list">
 		<div class="modal-header">
 		</div>
-		<div class="modal-body">
-			 <label class="control-label" for="typeahead">Tanggal</label>
+				<fieldset>
+				<div class="control-group">
+				
+				<label class="control-label" for="typeahead">Dari Tanggal</label>
 							  <div class="controls">
-								<input type="text" class="input-xlarge datepicker" id="date01" name="tgl">
+							<!--	<input type="text" class="input-xlarge"  id="date01" name="tgl"> -->
+								<input type="date" name="tgl">
 								</div>
 			</div>
-			<div class="modal-body">
-			 <label class="control-label" for="typeahead">Tanggal</label>
+			<div class="control-group">
+			 <label class="control-label" for="typeahead">Sampai Tanggal</label>
 							  <div class="controls">
-							<input type="text" class="input-xlarge datepicker" id="date02" name="tgl_awal">
+							<!--<input type="text" class="input-xlarge" id="date02" name="tgl_awal"> -->
+							<input type="date" name="tgl_awal">
 								</div>
 		</div>
-		<div class="modal-footer">
+		<div class="form-actions">
 		    <button type="submit" class="btn btn-primary">Cetak Data</button>
 	</div>
+	</fieldset>
 						</ul>
 					</div>
 				</div><!--/span-->

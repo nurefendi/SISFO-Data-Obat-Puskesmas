@@ -32,15 +32,16 @@
 
 						  <fieldset>
 							<div class="control-group">
-							   <label class="control-label" for="typeahead">Jml Obat</label>
+							<h2>Masukan Tanggal dengan Format: Tahun-Bulan-Hari<center> </h2>
+							   <label class="control-label" for="typeahead">Dari Tanggal</label>
 							   <div class="controls">
-							   <input type="text" class="input-xlarge datepicker" id="date01" name="tgl_awal">
+							   <input type="date" class="input-xlarge" id="date01" name="tgl_awal">
 								</div>
 							   </div>
 							<div class="control-group">
-							  <label class="control-label" for="typeahead">Tanggal Edit</label>
+							  <label class="control-label" for="typeahead">Sampai Tanggal</label>
 							  <div class="controls">
-								<input type="text" class="input-xlarge datepicker" id="date02" name="tgl_akhir">
+								<input type="date" class="input-xlarge" id="date02" name="tgl_akhir">
 								</div>
 							</div>
 							<div class="form-actions">

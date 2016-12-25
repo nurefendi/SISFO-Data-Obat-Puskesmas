@@ -1,12 +1,6 @@
 /*
  * FullCalendar v1.5.4 Stylesheet
  *
- * Copyright (c) 2011 Adam Shaw
- * Dual licensed under the MIT and GPL licenses, located in
- * MIT-LICENSE.txt and GPL-LICENSE.txt respectively.
- *
- * Date: Tue Sep 4 23:38:33 2012 -0700
- *
  */
 
 
@@ -122,23 +116,13 @@ html .fc,
 /* Cell Styles
 ------------------------------------------------------------------------*/
 
-.fc-widget-header {
-	background-image: -moz-linear-gradient(top, #fafafa, #efefef);
-  	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fafafa), to(#efefef));
-  	background-image: -webkit-linear-gradient(top, #fafafa, #efefef);
-  	background-image: -o-linear-gradient(top, #fafafa, #efefef);
-  	background-image: linear-gradient(to bottom, #fafafa, #efefef);
-	color: #646464;
-}
-
 .fc-widget-header,    /* <th>, usually */
 .fc-widget-content {  /* <td>, usually */
-	border: 1px solid #ddd;
-	color: #646464;
-}
+	border: 1px solid #ccc;
+	}
 	
 .fc-state-highlight { /* <td> today cell */ /* TODO: add .fc-today to <th> */
-	background: #fff;
+	background: #ffc;
 	}
 	
 .fc-cell-overlay { /* semi-transparent rectangle while dragging */
@@ -156,7 +140,6 @@ html .fc,
 	position: relative;
 	display: inline-block;
 	cursor: pointer;
-	margin-top: -46px;
 	}
 	
 .fc-state-default { /* non-theme */
@@ -168,8 +151,6 @@ html .fc,
 	position: relative;
 	float: left;
 	overflow: hidden;
-	padding: 7px 7px 6px 7px;
-	
 	}
 	
 .fc-state-default .fc-button-inner { /* non-theme */
@@ -180,8 +161,8 @@ html .fc,
 .fc-button-content {
 	position: relative;
 	float: left;
-	height: 1.6em;
-	line-height: 1.6em;
+	height: 1.9em;
+	line-height: 1.9em;
 	padding: 0 .6em;
 	white-space: nowrap;
 	}
@@ -211,46 +192,51 @@ html .fc,
 	}
 	
 .fc-state-default .fc-button-effect span {
-
+	position: absolute;
+	top: -100px;
+	left: 0;
+	width: 500px;
+	height: 100px;
+	border-width: 100px 0 0 1px;
+	border-style: solid;
+	border-color: #fff;
+	background: #444;
+	opacity: .09;
+	filter: alpha(opacity=9);
 	}
 	
 /* button states (determines colors)  */
 	
 .fc-state-default,
 .fc-state-default .fc-button-inner {
-	border-top-style: none;
-	border-bottom-style: none;
-	border-left-style: solid;
-	border-right-style: solid;
-	border-color: #eee;
-	background: transparent;
-	color: #646464;
+	border-style: solid;
+	border-color: #ccc #bbb #aaa;
+	background: #F3F3F3;
+	color: #000;
 	}
 	
 .fc-state-hover,
 .fc-state-hover .fc-button-inner {
-	border-color: #eee;
-	background: #fafafa;
+	border-color: #999;
 	}
 	
 .fc-state-down,
 .fc-state-down .fc-button-inner {
-	border-color: #eee;
-	background: transparent;
+	border-color: #555;
+	background: #777;
 	}
 	
 .fc-state-active,
 .fc-state-active .fc-button-inner {
-	border-color: #eee;
-	background: #fff;
-	color: #646464;
-	border-bottom: 1px solid #fff;
+	border-color: #555;
+	background: #777;
+	color: #fff;
 	}
 	
 .fc-state-disabled,
 .fc-state-disabled .fc-button-inner {
 	color: #999;
-	border-color: #eee;
+	border-color: #ddd;
 	}
 	
 .fc-state-disabled {
@@ -287,8 +273,8 @@ a.fc-event {
 	}
 	
 .fc-event-skin {
-	border-color: #2FABE9;     /* default BORDER color */
-	background-color: #67C2EF; /* default BACKGROUND color */
+	border-color: #36c;     /* default BORDER color */
+	background-color: #36c; /* default BACKGROUND color */
 	color: #fff;            /* default TEXT color */
 	}
 	
@@ -540,7 +526,7 @@ table.fc-border-separate {
 /* slot rows */
 	
 .fc-agenda-slots th {
-	border-width: 1px 1px;
+	border-width: 1px 1px 0;
 	}
 	
 .fc-agenda-slots td {
@@ -622,3 +608,5 @@ table.fc-border-separate {
 .fc-agenda .ui-resizable-resizing { /* TODO: better selector */
 	_overflow: hidden;
 	}
+	
+	
